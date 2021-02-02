@@ -6,6 +6,7 @@ function MockHome () {
         <div>Mock Homepage
             <div>
                 <Link className="text-link" to="/login">LOGIN</Link>
+                <Link className="signup-link" to="/SignUpForm">SIGNUP</Link>
             </div>
         </div>
         )
