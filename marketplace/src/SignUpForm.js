@@ -35,14 +35,7 @@ return (
          </NavContainer>
  <Container onSubmit={onSubmit}>
   <div className="container">
-    <div className="errordiv">
-      <div>{errors.userName}</div>
-      <div>{errors.firstname}</div>
-      <div>{errors.lastname}</div>
-      <div>{errors.email}</div>
-      <div>{errors.password}</div>
-      <div>{errors.passwordConfirmation}</div>
-    </div>
+    <Banner></Banner>
     <div className="subcon">
     <h1>Sign up here.</h1>
       <form >
@@ -63,6 +56,14 @@ return (
         <button id="subbutton" disabled={disable}>submit</button>
       
     </div>
+    <div className="errordiv">
+      <div>{errors.userName}</div>
+      <div>{errors.firstname}</div>
+      <div>{errors.lastname}</div>
+      <div>{errors.email}</div>
+      <div>{errors.password}</div>
+      <div>{errors.passwordConfirmation}</div> 
+    </div>
   </div>
   </Container>
   </Bod>
@@ -80,7 +81,14 @@ background-color: #c3e3ff;
 height: 7vh;
 width: 100%;
 `
-
+const Banner = styled.div`
+background-image: url('https://cdn.lifehack.org/wp-content/uploads/2016/01/15145741/Holding-hands-feature.jpg');
+height: 60vh;
+width: 100%;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+`
 const NavTop = styled.nav`
 /* background-color: #c3e3ff;
 height: 7vh;
