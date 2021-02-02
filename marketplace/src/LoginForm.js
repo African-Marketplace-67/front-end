@@ -34,7 +34,7 @@ function LoginForm (props) {
             <   Link className="text-link" to="/">African Marketplace</Link>
             </NavTop>
          </NavContainer>
-         <Banner></Banner>
+         {/* <Banner></Banner> */}
          <Container onSubmit={onSubmit}>
            {/* {errors && <div className= "errors">
                <div>{errors.userName}</div>
@@ -42,10 +42,10 @@ function LoginForm (props) {
             </div>} */}
 
             {/* <div> */}
-                <LeftImg></LeftImg>
+                {/* <LeftImg></LeftImg> */}
 
                 <H1></H1>
-                {/* <H2>Username</H2> */}
+                <H2>Username</H2>
                 <label>
                     <input 
                         type ="text"
@@ -56,7 +56,7 @@ function LoginForm (props) {
                         maxLength='50'
                     />
                 </label>
-                {/* <H2>Password</H2> */}
+                <H2>Password</H2>
                 <label>
                     <input 
                         type="password"
@@ -71,9 +71,10 @@ function LoginForm (props) {
                 <Button>
                     <button id="submitBtn">ENTER</button>
                 </Button>
-                <RightImg></RightImg>
+                {/* <RightImg></RightImg> */}
             {/* </div> */}
             </Container>
+            <Banner></Banner>
             {/* <Bottom>
                 <TwitterIcon size={40} round={true} />
                 <FacebookIcon size={40} round={true} />
@@ -129,7 +130,7 @@ const Container = styled.form`
 display:flex;
 justify-content: center;
 align-items: center;
-flex-direction: row;
+flex-direction: column;
 `
 const NavTop = styled.nav`
 font-size: 2rem;
@@ -146,7 +147,7 @@ height: 7vh;
 width: 100%;
 `
 const Button = styled.div`
-margin: 15% 0%;
+margin: 5% 0%;
 text-align:center;
 `
 const H1 = styled.h1`
