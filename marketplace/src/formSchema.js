@@ -27,4 +27,5 @@ export default yup.object().shape({
   passwordConfirmation: yup
     .string()
     .oneOf([yup.ref('password')], null, "Password must match.")
+    //need to fix this part, its not registering
 })
