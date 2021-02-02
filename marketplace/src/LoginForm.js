@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory, Link } from 'react-router-dom' 
 import styled from 'styled-components'
-import '../App.css'
+import './App.css'
 // import {EmailIcon, FacebookIcon, TwitterIcon} from "react-share"
 
 
@@ -36,10 +36,10 @@ function LoginForm (props) {
          </NavContainer>
          <Banner></Banner>
          <Container onSubmit={onSubmit}>
-           {errors && <div className= "errors">
+           {/* {errors && <div className= "errors">
                <div>{errors.userName}</div>
                <div>{errors.password}</div>
-            </div>}
+            </div>} */}
 
             <div>
             

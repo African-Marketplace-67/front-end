@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
+
 
 
 export default function SignupForm(props){
@@ -8,13 +10,21 @@ const {values, submit, change, disable, errors} = props
 
 const onChange = (evt) => {
   const {name, value}= evt.target;
- 
+  change(name,value)
 };
 
 const onSubmit = (evt) => {
   evt.preventDefault()
   submit()
+  routeToMain()
 }
+
+
+const history = useHistory()
+const routeToMain = () => {
+  history.push(('/mockMain'))
+}
+
 
 return (
 
