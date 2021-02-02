@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
-import MockHome from './MockHome'
+import Home from './Home'
 import LoginForm from './LoginForm.js'
 import MockMain from './MockMain'
 import axios from 'axios'
@@ -136,7 +136,7 @@ function App() {
       
 
         <Route exact path="/">
-          <MockHome />
+          <Home />
         </Route>
       </Switch>
     </div>
