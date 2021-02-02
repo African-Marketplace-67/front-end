@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
-
+import { useHistory, Link } from "react-router-dom";
+import styled from 'styled-components'
 
 
 export default function SignupForm(props){
@@ -27,10 +27,16 @@ const routeToMain = () => {
 
 
 return (
-
+  <Bod>
+  <NavContainer>
+            <NavTop>
+            <   Link className="text-link" to="/">African Marketplace</Link>
+            </NavTop>
+         </NavContainer>
+ <Container onSubmit={onSubmit}>
   <div className="container">
     <div className="errordiv">
-      <div>{errors.username}</div>
+      <div>{errors.userName}</div>
       <div>{errors.firstname}</div>
       <div>{errors.lastname}</div>
       <div>{errors.email}</div>
@@ -39,9 +45,9 @@ return (
     </div>
     <div className="subcon">
     <h1>Sign up here.</h1>
-      <form onSubmit={onSubmit}>
+      <form >
       <label>Username:</label>
-        <input type="text" name="username" value={values.username} onChange={onChange} ></input>
+        <input type="text" name="userName" value={values.userName} onChange={onChange} ></input>
         <label>First Name:</label>
         <input type="text" name="firstname" value={values.firstname} onChange={onChange} ></input>
         <label>Last Name:</label>
@@ -53,13 +59,43 @@ return (
         <label>Confirm Password:</label>
         <input type="password" name="passwordConfirmation" value={values.passwordConfirmation} onChange={onChange}></input>
       </form>
-      <button id="subbutton" disabled={disable}>submit</button>
+    
+        <button id="subbutton" disabled={disable}>submit</button>
+      
     </div>
   </div>
-
+  </Container>
+  </Bod>
 
 
 )
 }
 
+const Bod = styled.div`
+margin:0;
+padding:0;
+`
+const NavContainer = styled.div`
+background-color: #c3e3ff;
+height: 7vh;
+width: 100%;
+`
 
+const NavTop = styled.nav`
+/* background-color: #c3e3ff;
+height: 7vh;
+width: 100%; */
+font-size: 2rem;
+font-weight: bold;
+margin-left: 2%;
+
+:hover {
+color: aliceblue
+}
+`
+const Container = styled.form`
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+`
