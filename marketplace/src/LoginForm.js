@@ -41,43 +41,45 @@ function LoginForm (props) {
                <div>{errors.password}</div>
             </div>} */}
 
-            <div>
-            
-            <H1>LOGIN</H1>
-            <H2>Username</H2>
-            <label>
-                <input 
-                    type ="text"
-                    name ="userName"
-                    value ={values.userName}
-                    onChange={onChange}
-                    placeholder='enter your username'
-                    maxLength='50'
-                />
-            </label>
-            <H2>Password</H2>
-            <label>
-                <input 
-                    type="password"
-                    name="password"
-                    value={values.password}
-                    onChange={onChange}
-                    placeholder='enter your password'
-                    maxLength='50'
-                />
-            </label>
+            {/* <div> */}
+                <LeftImg></LeftImg>
 
-            <Button>
-                <button id="submitBtn">LOGIN</button>
-            </Button>
-            
-            </div>
-            <Bottom>
-                {/* <TwitterIcon size={40} round={true} />
+                <H1></H1>
+                {/* <H2>Username</H2> */}
+                <label>
+                    <input 
+                        type ="text"
+                        name ="userName"
+                        value ={values.userName}
+                        onChange={onChange}
+                        placeholder='USERNAME'
+                        maxLength='50'
+                    />
+                </label>
+                {/* <H2>Password</H2> */}
+                <label>
+                    <input 
+                        type="password"
+                        name="password"
+                        value={values.password}
+                        onChange={onChange}
+                        placeholder='PASSWORD'
+                        maxLength='50'
+                    />
+                </label>
+
+                <Button>
+                    <button id="submitBtn">ENTER</button>
+                </Button>
+                <RightImg></RightImg>
+            {/* </div> */}
+            </Container>
+            {/* <Bottom>
+                <TwitterIcon size={40} round={true} />
                 <FacebookIcon size={40} round={true} />
-                <EmailIcon size={40} round={true} /> */}
-            </Bottom>
-         </Container>
+                <EmailIcon size={40} round={true} /> 
+            </Bottom>*/}
+         
          
      </Bod>
     )
@@ -93,8 +95,26 @@ padding:0;
 
 const Banner = styled.div`
 background-image: url('https://images.unsplash.com/photo-1452804882841-573355623310?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-height: 40vh;
+height: 30vh;
 width: 100%;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+`
+const LeftImg = styled.img`
+background-image: url('https://images.unsplash.com/photo-1524414621493-7dec026782c3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+height: 50vh;
+width: 100%;
+border: 4px solid #d3d2d2;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+`
+const RightImg = styled.img`
+background-image: url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80');
+height: 50vh;
+width: 100%;
+border: 4px solid #d3d2d2;
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
@@ -109,12 +129,9 @@ const Container = styled.form`
 display:flex;
 justify-content: center;
 align-items: center;
-flex-direction: column;
+flex-direction: row;
 `
 const NavTop = styled.nav`
-/* background-color: #c3e3ff;
-height: 7vh;
-width: 100%; */
 font-size: 2rem;
 font-weight: bold;
 margin-left: 2%;
