@@ -1,13 +1,13 @@
 import './App.css';
 import React, { useState, useEffect } from 'react'
 import Home from './Home'
-import LoginForm from './LoginForm.js'
+import LoginForm from './components/LoginForm'
 import MockMain from './MockMain'
 import axios from 'axios'
 import { Route, Switch} from 'react-router-dom'
 import * as yup from 'yup'
-import schema from './formSchema'
-import SignUpForm from "./SignUpForm"
+import schema from './schemas/formSchema'
+import SignUpForm from "./components/SignUpForm"
 import PrivateRoute from './utils/PrivateRoute'
 
 
