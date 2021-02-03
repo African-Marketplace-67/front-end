@@ -28,11 +28,11 @@ function LoginForm(props) {
   const onSubmit = (evt) => {
     evt.preventDefault();
     axios
-      .post("https://african-marketplace-67/auth/login", credentials)
+      .post("https://cors-anywhere.herokuapp.com/https://african-market-67.herokuapp.com/auth/login", credentials)
       .then((res) => {
         console.log(res.data);
-        submit();
-        routeToMain();
+        localStorage.setItem('token', res.data.token)
+        history.push('/mockMain');
       })
       .catch((err) => {
         console.log(err);
@@ -40,10 +40,6 @@ function LoginForm(props) {
   };
 
   const history = useHistory();
-
-  const routeToMain = () => {
-    history.push("/mockMain");
-  };
 
   return (
     <Bod>
@@ -69,8 +65,8 @@ function LoginForm(props) {
         <label>
           <input
             type="text"
-            name="userName"
-            value={values.userName}
+            name="username"
+            value={values.username}
             onChange={onChange}
             placeholder="USERNAME"
             maxLength="50"

@@ -28,7 +28,7 @@ export default function SignupForm(props) {
     console.log(credentials);
     axios
       .post(
-        "https://african-marketplace-67.herokuapp.com/auth/register",
+        "https://cors-anywhere.herokuapp.com/https://african-market-67.herokuapp.com/auth/register",
         credentials
       )
       .then((res) => {
@@ -39,6 +39,8 @@ export default function SignupForm(props) {
       .catch((err) => {
         console.log(err);
       });
+
+      routeToMain()
   };
 
   const history = useHistory();
