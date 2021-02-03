@@ -8,28 +8,29 @@ import { Route, Switch} from 'react-router-dom'
 import * as yup from 'yup'
 import schema from './formSchema'
 import SignUpForm from "./SignUpForm"
+import PrivateRoute from './utils/PrivateRoute'
 
 
 const memberList = [];
 const initialFormValues = {
-   userName:"", 
-   firstname: "", 
-   lastname:"", 
+   username:"", 
+  //  firstname: "", 
+  //  lastname:"", 
    email:"", 
    password:"", 
-   passwordConfirmation:""
+  //  passwordConfirmation:""
   };
 const initialFormErrors = {
-   userName:"", 
-   firstname: "", 
-   lastname:"", 
+   username:"", 
+  //  firstname: "", 
+  //  lastname:"", 
    email:"", 
    password:"", 
-   passwordConfirmation:""
+  //  passwordConfirmation:""
   };
 const initialDisable = true;
 const initialLogin = {
-  userName: "",
+  username: "",
   password: ""
 };
 
@@ -77,7 +78,7 @@ function App() {
 
   const onSubmit = () => {
     const newLogin = {
-      userName: formValues.userName.trim(),
+      username: formValues.username.trim(),
       password: formValues.password.trim()
     }
     setLogin(newLogin)
@@ -86,11 +87,11 @@ function App() {
   const formSubmit = () => {
     const newMember = {
       username:formValues.username.trim(),
-      firstname:formValues.firstname.trim(),
-      lastname:formValues.lastname.trim(),
+      // firstname:formValues.firstname.trim(),
+      // lastname:formValues.lastname.trim(),
       email:formValues.email.trim(),
       password:formValues.password.trim(),
-      passwordConfirmation:formValues.passwordConfirmation.trim()
+      // passwordConfirmation:formValues.passwordConfirmation.trim()
     }
   }
 
@@ -129,9 +130,9 @@ function App() {
         </Route>
 
 
-        <Route path="/MockMain">
-          <MockMain />
-        </Route>
+        
+        <PrivateRoute exact path='/mockMain' component={MockMain} />
+        
 
       
 

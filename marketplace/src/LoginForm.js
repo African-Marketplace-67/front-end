@@ -1,24 +1,41 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import { useHistory, Link } from 'react-router-dom' 
 import styled from 'styled-components'
 import './App.css'
 // import {EmailIcon, FacebookIcon, TwitterIcon} from "react-share"
 
+const initial = {
+    username: '',
+    password: ''
+}
 
 function LoginForm (props) {
+
+    const [credentials, setCredentials] = useState(initial)
 
     const {values, submit, errors, change} = props
 
     const onChange = (evt) => {
         const {name, value} = evt.target
+        setCredentials({
+            ...credentials,
+            [evt.target.name]: evt.target.value
+        })
         
         change(name, value)
     }
 
     const onSubmit = (evt) => {
         evt.preventDefault()
-        submit()
-        routeToMain()
+        axios
+            .post('https://african-marketplace-67/auth/login', credentials)
+            .then(res => {
+                console.log(res.data)
+                submit()
+                routeToMain()
+            })
+            .catch(err => {console.log(err)})
     }
 
     const history = useHistory()
