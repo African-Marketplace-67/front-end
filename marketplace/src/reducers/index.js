@@ -1,8 +1,13 @@
 const initialState = {
-    location: '',
-    name: '',
-    description: '',
-    price: ''
+    item: {
+        location: '',
+        name: '',
+        description: '',
+        price: ''
+    },
+    items: [],
+    isFetching: false,
+    error: ''
 }
 
 export const reducer = (state=initialState, action) => {
