@@ -49,7 +49,7 @@ function MockMain ({items}) {
             </Welcome>
             <Nav>
                 <Link to='/' onClick={handleLogout}>Logout</Link>
-                <Link to='/items:id'>Item Form</Link>
+                <Link to='/add-item'>Item Form</Link>
             </Nav>
             <Image src='https://images.unsplash.com/photo-1533900298318-6b8da08a523e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80' />
             <ItemDisplay>

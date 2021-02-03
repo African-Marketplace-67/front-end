@@ -9,6 +9,7 @@ import * as yup from 'yup'
 import schema from './schemas/formSchema'
 import SignUpForm from "./components/SignUpForm"
 import PrivateRoute from './utils/PrivateRoute'
+import ItemForm from './components/ItemForm';
 
 
 const memberList = [];
@@ -132,6 +133,8 @@ function App() {
 
         
         <PrivateRoute exact path='/mockMain' component={MockMain} />
+        <PrivateRoute  path='/add-item' component={ItemForm} />
+        <PrivateRoute  path='/edit-item/:id' component={ItemForm} />
         
 
       

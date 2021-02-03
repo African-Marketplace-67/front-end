@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {editItem, addItem} from '../actions/index'
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+
 const initialState = {
     location: '',
     name: '',
@@ -11,15 +12,17 @@ const initialState = {
 const ItemForm = ()=> {
     const [values, setValues] = useState(initialState);
     const history = useHistory();
+    const params = useParams()
+
 
     const onSubmit = e => {
         e.preventDefault()
-        if(history.location.pathname === '/edit-item'){
+        if(history.location.pathname === `/edit-item/${params.id}`){
             editItem(values)
-            history.push()
+            history.push('/mockMain')
         } else if (history.location.pathname === '/add-item') {
             addItem(values)
-            history.push()
+            history.push('/mockMain')
         }
       }
     
@@ -33,7 +36,7 @@ const ItemForm = ()=> {
       return (
         <form onSubmit={onSubmit}>
             <h2>Add an item</h2>
-            <label>Name;
+            <label>Name
               <input
                 value={values.name}
                 onChange={handleChange}
@@ -44,9 +47,9 @@ const ItemForm = ()=> {
 
             <label>Location
               <input
-                value={values.email}
+                value={values.location}
                 onChange={handleChange}
-                name='email'
+                name='location'
                 type='text'
               />
             </label>
