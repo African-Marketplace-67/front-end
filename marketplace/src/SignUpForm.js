@@ -1,28 +1,48 @@
 import React, {useState} from "react";
 import { useHistory, Link } from "react-router-dom";
 import styled from 'styled-components'
+import axios from 'axios'
+
+const initialValues = {
+  username: '',
+  email: '',
+  password: ''
+}
 
 
 export default function SignupForm(props){
+
+  const [credentials, setCredentials] = useState(initialValues)
 
 const {values, submit, change, disable, errors} = props
 
 
 const onChange = (evt) => {
   const {name, value}= evt.target;
+  setCredentials({
+    ...credentials,
+    [evt.target.name]: evt.target.value
+  })
   change(name,value)
 };
 
 const onSubmit = (evt) => {
   evt.preventDefault()
-  submit()
-  routeToMain()
+  console.log(credentials)
+  axios
+    .post('http://african-marketplace-67.herokuapp.com/auth/register', credentials)
+    .then(res => {
+      console.log(res.data)
+      submit()
+      routeToMain()
+    })
+    .catch(err => {console.log(err)})
 }
 
 
 const history = useHistory()
 const routeToMain = () => {
-  history.push(('/mockMain'))
+  history.push(('/login'))
 }
 
 
@@ -40,17 +60,17 @@ return (
     <h1>Sign up here.</h1>
       <form >
       <label>Username:</label>
-        <input type="text" name="userName" value={values.userName} onChange={onChange} ></input>
-        <label>First Name:</label>
+        <input type="text" name="username" value={values.username} onChange={onChange} ></input>
+        {/* <label>First Name:</label>
         <input type="text" name="firstname" value={values.firstname} onChange={onChange} ></input>
         <label>Last Name:</label>
-        <input type="text" name="lastname" value={values.lastname} onChange={onChange} ></input>
+        <input type="text" name="lastname" value={values.lastname} onChange={onChange} ></input> */}
         <label>Email:</label>
         <input type="email" name="email" value={values.email} onChange={onChange} ></input>
         <label>Password:</label>
         <input type="password" name="password" value={values.password} onChange={onChange}></input>
-        <label>Confirm Password:</label>
-        <input type="password" name="passwordConfirmation" value={values.passwordConfirmation} onChange={onChange}></input>
+        {/* <label>Confirm Password:</label>
+        <input type="password" name="passwordConfirmation" value={values.passwordConfirmation} onChange={onChange}></input> */}
       </form>
     
         <button id="subbutton" disabled={disable}>submit</button>
