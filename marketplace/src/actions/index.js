@@ -56,7 +56,8 @@ export const deleteItem = (newItem) => dispatch => {
     axiosWithAuth()
       .delete(`/items/${newItem.id}`, newItem)
       .then((res) => {
-        dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
+        console.log(res)
+        dispatch({ type: DELETE_ITEM_SUCCESS, payload: newItem });
       })
       .catch((err) => {
         console.log(err);

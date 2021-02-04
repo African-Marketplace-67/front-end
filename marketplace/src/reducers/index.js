@@ -50,6 +50,13 @@ export const reducer = (state=initialState, action) => {
             return ({
                 ...state
             })
+        case DELETE_ITEM_SUCCESS:
+            return ({
+                ...state,
+                items: state.items.filter((item) => {
+                    return (item.id !== action.payload.id)
+                })
+            })
         case HANDLE_ERROR:
             return {
                 ...state,

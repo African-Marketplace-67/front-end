@@ -22,6 +22,7 @@ const ItemForm = ()=> {
         if(history.location.pathname === `/edit-item/${params.id}`){
          
             dispatch(editItem({...values,id: params.id}))
+            history.push('/mockMain')
          
         } else if (history.location.pathname === '/add-item') {
             dispatch(addItem(values))
