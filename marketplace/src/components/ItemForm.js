@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {editItem, addItem} from '../actions/index'
 import { useHistory, useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 const initialState = {
     location: '',
@@ -13,15 +14,16 @@ const ItemForm = ()=> {
     const [values, setValues] = useState(initialState);
     const history = useHistory();
     const params = useParams()
+    const dispatch = useDispatch()
 
 
     const onSubmit = e => {
         e.preventDefault()
         if(history.location.pathname === `/edit-item/${params.id}`){
-            editItem(values)
+            dispatch(editItem(values))
             history.push('/mockMain')
         } else if (history.location.pathname === '/add-item') {
-            addItem(values)
+            dispatch(addItem(values))
             history.push('/mockMain')
         }
       }

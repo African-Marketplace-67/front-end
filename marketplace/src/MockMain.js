@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { getItems, editItem } from './actions/index'
+import { getItems, editItem } from '../src/actions/index'
 import { useHistory } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 
 const Wrapper = styled.div``
 
@@ -18,7 +18,9 @@ const Image = styled.img`
 `
 
 const ItemDisplay = styled.div`
-
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
 `
 
 const Welcome = styled.div`
@@ -27,15 +29,26 @@ const Welcome = styled.div`
     align-items: center;
 `
 
-const ItemWrapper = styled.div``
+const ItemWrapper = styled.div`
+    background: #e7e7e7;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .15);
+    width: 20rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
 
 const ItemButton = styled.button``
 
 function MockMain ({items}) {
     const history = useHistory()
 
+    const dispatch = useDispatch()
+
     useEffect(() => {
-        getItems()
+        dispatch(getItems())
     }, [])
 
     const handleLogout = () => {
@@ -64,7 +77,7 @@ function MockMain ({items}) {
                                 event.preventDefault()
                                 editItem(item)
                                 history.push('/items/:id')
-                            }}>Edit/Delete</ItemButton>
+                            }}>Edit</ItemButton>
                         </ItemWrapper>
                     )
                 })}
@@ -74,6 +87,7 @@ function MockMain ({items}) {
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     return {
         items: state.items
     }

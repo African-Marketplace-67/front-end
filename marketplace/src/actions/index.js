@@ -10,11 +10,13 @@ export const DELETE_ITEM_START = "DELETE_ITEM_START"
 export const DELETE_ITEM_SUCCESS = "DELETE_ITEM_SUCCESS"
 export const HANDLE_ERROR = "HANDLE_ERROR";
 
-export const getItems = () => (dispatch) => {
+export const getItems = () => dispatch => {
   dispatch({ type: FETCHING_ITEMS_START });
+  console.log(dispatch)
   axiosWithAuth()
-    .get(`https://african-marketplace-67/items`)
+    .get('/items')
     .then((res) => {
+      console.log(res)
       dispatch({ type: FETCHING_ITEMS_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -22,11 +24,12 @@ export const getItems = () => (dispatch) => {
       dispatch({ type: HANDLE_ERROR, payload: err.response });
     });
 };
-export const addItem = (newItem) => (dispatch) => {
+export const addItem = (newItem) => dispatch => {
   dispatch({ type: ADDING_ITEMS_START });
   axiosWithAuth()
-    .post(`https://african-marketplace-67/items`, newItem)
+    .post('/items', newItem)
     .then((res) => {
+      console.log(res)
       dispatch({ type: ADDING_ITEMS_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -35,10 +38,10 @@ export const addItem = (newItem) => (dispatch) => {
     });
 };
 
-export const editItem = (newItem) => (dispatch) => {
+export const editItem = (newItem) => dispatch => {
   dispatch({ type: EDIT_ITEM_START });
   axiosWithAuth()
-    .put(`https://african-marketplace-67/items/:id`, newItem)
+    .put('/items/:id', newItem)
     .then((res) => {
       dispatch({ type: EDIT_ITEM_SUCCESS, payload: res.data });
     })
@@ -48,10 +51,10 @@ export const editItem = (newItem) => (dispatch) => {
     });
 };
 
-export const deleteItem = (newItem) => (dispatch) => {
+export const deleteItem = (newItem) => dispatch => {
     dispatch({ type: DELETE_ITEM_START });
     axiosWithAuth()
-      .delete(`https://african-marketplace-67/items/:id`, newItem)
+      .delete('/items/:id', newItem)
       .then((res) => {
         dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
       })
