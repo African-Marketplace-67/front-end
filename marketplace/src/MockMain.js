@@ -76,7 +76,7 @@ function MockMain ({items}) {
                             <ItemButton onClick={(event) => {
                                 event.preventDefault()
                                 
-                                history.push(`'/items/${item.id}`)
+                                history.push(`/edit-item/${item.id}`)
                             }}>Edit</ItemButton>
                             <ItemButton onClick={()=>{
                                 dispatch(deleteItem(item))
