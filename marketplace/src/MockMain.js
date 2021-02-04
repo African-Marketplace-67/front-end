@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { getItems, editItem } from '../src/actions/index'
+import { getItems, editItem, deleteItem } from '../src/actions/index'
 import { useHistory } from 'react-router-dom'
 import { connect, useDispatch } from 'react-redux'
 
@@ -75,9 +75,12 @@ function MockMain ({items}) {
                             <h4>Location: {item.location}</h4>
                             <ItemButton onClick={(event) => {
                                 event.preventDefault()
-                                editItem(item)
+                                
                                 history.push('/items/:id')
                             }}>Edit</ItemButton>
+                            <ItemButton onClick={()=>{
+                                deleteItem(item)
+                            }}>Delete</ItemButton>
                         </ItemWrapper>
                     )
                 })}
