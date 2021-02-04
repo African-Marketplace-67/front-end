@@ -72,7 +72,7 @@ const ItemForm = ()=> {
       
               <Label>Description
                 <input
-                  value={values.decription}
+                  value={values.description}
                   onChange={handleChange}
                   name='description'
                   type='text'
