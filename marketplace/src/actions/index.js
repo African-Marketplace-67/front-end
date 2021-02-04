@@ -41,7 +41,7 @@ export const addItem = (newItem) => dispatch => {
 export const editItem = (newItem) => dispatch => {
   dispatch({ type: EDIT_ITEM_START });
   axiosWithAuth()
-    .put('/items/:id', newItem)
+    .put(`/items/${newItem.id}`, newItem)
     .then((res) => {
       dispatch({ type: EDIT_ITEM_SUCCESS, payload: res.data });
     })
@@ -54,7 +54,7 @@ export const editItem = (newItem) => dispatch => {
 export const deleteItem = (newItem) => dispatch => {
     dispatch({ type: DELETE_ITEM_START });
     axiosWithAuth()
-      .delete('/items/:id', newItem)
+      .delete(`/items/${newItem.id}`, newItem)
       .then((res) => {
         dispatch({ type: DELETE_ITEM_SUCCESS, payload: res.data });
       })
