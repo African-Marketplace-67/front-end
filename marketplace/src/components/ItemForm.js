@@ -21,8 +21,10 @@ const ItemForm = ()=> {
     const onSubmit = e => {
         e.preventDefault()
         if(history.location.pathname === `/edit-item/${params.id}`){
-            dispatch(editItem(values))
+         
+            dispatch(editItem({...values,id: params.id}))
             history.push('/mockMain')
+         
         } else if (history.location.pathname === '/add-item') {
             dispatch(addItem(values))
             history.push('/mockMain')
